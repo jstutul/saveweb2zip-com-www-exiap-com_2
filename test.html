@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var url = 'https://www.exiap.com/wp-admin/admin-ajax.php';
+        // var queryParams = 'action=new_cal_trans_rate' +
+        //     '&data=cc=C&ofxid=13507&excludedproviders=&forced_utm_campaign=%252F&sendamount=10000&sendamount_curr=180&fromcountry=180&tocountry=60&load_type=default';
+
+        // fetch(url + '?' + queryParams, {
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     referrer: 'https://www.exiap.com'
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log(data);
+        //     })
+        //     .catch(error => {
+        //         console.error('Error:', error);
+        //     });
+        var url = 'https://www.exiap.com/wp-admin/admin-ajax.php';
+        var queryParams = 'action=new_cal_trans_rate' +
+            '&data=cc=C&ofxid=13507&excludedproviders=&forced_utm_campaign=%252F&sendamount=10000&sendamount_curr=180&fromcountry=180&tocountry=60&load_type=default';
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url + '?' + queryParams);
+        xhr.withCredentials = true;
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send();
+
+    </script>
+</body>
+
+</html>
